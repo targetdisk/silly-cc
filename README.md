@@ -1,4 +1,11 @@
 # Silly CC
+
+<p align="center">
+  <a href="./LICENSE">
+    <img alt="License: AGPLv3+TRANS RIGHTS" src="./img/license-badge.svg">
+  </a>
+</p>
+
 `silly-cc` is a build system-agnostic wrapper around Clang that automagically
 produces pieces needed to build a JSON compilation database.  It is a drop-in
 replacement for `clang` in any build system where you can override the `cc`
