@@ -1,0 +1,6 @@
+#!/bin/sh
+
+[ -n "$1" ] && SEARCH_PATH="$1" || SEARCH_PATH='.'
+
+find "$SEARCH_PATH" -name '*.json' -print0 \
+  | xargs -0 sed -e '1s/^/[\'$'\n''/' -e '$s/,$/\'$'\n'']/' > compile_commands.json
