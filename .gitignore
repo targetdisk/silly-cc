@@ -1,0 +1,13 @@
+pub.css
+silly-cc
+crud
+tags
+README.html
+dist
+
+compile_commands.json
+silly-cc.json
+
+*.swo
+*.swn
+*.swp
