@@ -1,6 +1,7 @@
 UNAME = $(shell uname)
 STRIP ?= strip
 CLANG ?= $(shell which clang)
+CLANG++ ?= $(shell which clang++)
 
 CFLAGS ?= -Wall
 ifeq ($(UNAME),Linux)
@@ -19,6 +20,9 @@ README: pub-css # Requires Pandoc to be installed
 
 silly-cc: silly-cc.c
 	$(CC) $(CFLAGS) -DCLANG=$(CLANG) -o $@ $<
+
+silly-cxx: silly-cc.c
+	$(CC) $(CFLAGS) -DCLANG=$(CLANG++) -o $@ $<
 
 strip: silly-cc
 	$(STRIP) $^
