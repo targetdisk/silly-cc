@@ -12,6 +12,8 @@
 
 int main (int argc, char **argv) {
   char **silly_args = malloc(sizeof(char *) * (argc + 3));
+  if (!silly_args)
+    exit(ENOMEM);
   char *clang_filename = STRINGIFY(CLANG);
   char *json_filename = NULL;
   size_t ii = 3;
@@ -30,6 +32,8 @@ int main (int argc, char **argv) {
 
   if (!json_filename) {
     char **_silly_args = malloc(sizeof(char *) * (argc + 5));
+    if (!_silly_args)
+      exit(ENOMEM);
     size_t si = 3;
 
     _silly_args[si] = malloc(3);
