@@ -7,10 +7,12 @@
 #define _STRINGIFY(s)  #s
 #define STRINGIFY(s) _STRINGIFY(s)
 #ifndef CLANG
-#define CLANG /usr/bin/clang
+#define CLANG clang
 #endif
 
-int main (int argc, char **argv) {
+extern char **environ;
+
+int main (int argc, char **argv, char **envp) {
   char **silly_args = malloc(sizeof(char *) * (argc + 3));
   if (!silly_args)
     exit(ENOMEM);
@@ -68,5 +70,6 @@ int main (int argc, char **argv) {
   silly_args[argc + 2] = NULL;
 
   printf("%s\n", json_filename);
-  return execv(clang_filename, silly_args);
+  environ = envp;
+  return execvp(clang_filename, silly_args);
 }
